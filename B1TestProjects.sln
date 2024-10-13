@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProcessor", "FileProcessor\FileProcessor.csproj", "{E4F35CC8-D133-4C01-BE5B-0AC5A643CBB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlModels", "SqlModels\SqlModels.csproj", "{51378AA6-F8CD-4E93-8854-B31678021F27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4F35CC8-D133-4C01-BE5B-0AC5A643CBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F35CC8-D133-4C01-BE5B-0AC5A643CBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F35CC8-D133-4C01-BE5B-0AC5A643CBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F35CC8-D133-4C01-BE5B-0AC5A643CBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51378AA6-F8CD-4E93-8854-B31678021F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51378AA6-F8CD-4E93-8854-B31678021F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51378AA6-F8CD-4E93-8854-B31678021F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51378AA6-F8CD-4E93-8854-B31678021F27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

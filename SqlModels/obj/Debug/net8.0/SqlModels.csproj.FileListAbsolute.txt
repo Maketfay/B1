@@ -1,0 +1,15 @@
+D:\B1_test_proj\B1TestProjects\SqlModels\bin\Debug\net8.0\SqlModels.deps.json
+D:\B1_test_proj\B1TestProjects\SqlModels\bin\Debug\net8.0\SqlModels.runtimeconfig.json
+D:\B1_test_proj\B1TestProjects\SqlModels\bin\Debug\net8.0\SqlModels.dll
+D:\B1_test_proj\B1TestProjects\SqlModels\bin\Debug\net8.0\SqlModels.pdb
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.csproj.AssemblyReference.cache
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.AssemblyInfoInputs.cache
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.AssemblyInfo.cs
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.csproj.CoreCompileInputs.cache
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.dll
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\refint\SqlModels.dll
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.pdb
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.genruntimeconfig.cache
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\ref\SqlModels.dll
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\EFCoreMySqlJsonNewtonsoft.cs

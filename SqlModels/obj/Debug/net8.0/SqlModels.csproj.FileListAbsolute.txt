@@ -13,3 +13,4 @@ D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.pdb
 D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.genruntimeconfig.cache
 D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\ref\SqlModels.dll
 D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\EFCoreMySqlJsonNewtonsoft.cs
+D:\B1_test_proj\B1TestProjects\SqlModels\obj\Debug\net8.0\SqlModels.sourcelink.json

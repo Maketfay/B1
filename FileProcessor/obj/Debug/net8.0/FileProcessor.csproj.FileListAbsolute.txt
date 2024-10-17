@@ -120,3 +120,4 @@ D:\B1_test_proj\B1TestProjects\FileProcessor\bin\Debug\net8.0\MySqlConnector.dll
 D:\B1_test_proj\B1TestProjects\FileProcessor\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\B1_test_proj\B1TestProjects\FileProcessor\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\B1_test_proj\B1TestProjects\FileProcessor\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.Json.Newtonsoft.dll
+D:\B1_test_proj\B1TestProjects\FileProcessor\obj\Debug\net8.0\FileProcessor.sourcelink.json

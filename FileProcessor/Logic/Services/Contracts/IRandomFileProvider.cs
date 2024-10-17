@@ -3,6 +3,8 @@
 public interface IRandomFileProvider
 {
     public Task SaveFileDataAsync(IEnumerable<RandomFileDataDto> fileData, CancellationToken ct);
+
+    public Task<FileAggregatedInfo> GetAggregatedInfoAsync(CancellationToken ct);
 }
 
 public class RandomFileDataDto
@@ -16,4 +18,11 @@ public class RandomFileDataDto
     public required int RandomInteger { get; set; }
 
     public required decimal RandomDouble { get; set; }
+}
+
+public class FileAggregatedInfo
+{
+    public required long Sum { get; set; }
+    
+    public required decimal Median { get; set; }
 }

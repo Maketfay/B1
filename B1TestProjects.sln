@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlModels", "SqlModels\SqlM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFileProcessor", "ExcelFileProcessor\ExcelFileProcessor.csproj", "{6C9C5222-64C2-4876-ADBB-213A0AA9799D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelProcessorWebApplication", "ExcelProcessorWebApplication\ExcelProcessorWebApplication.csproj", "{A789BCD7-5E0C-4C9E-B9EC-9B7DD2061405}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6C9C5222-64C2-4876-ADBB-213A0AA9799D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C9C5222-64C2-4876-ADBB-213A0AA9799D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C9C5222-64C2-4876-ADBB-213A0AA9799D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A789BCD7-5E0C-4C9E-B9EC-9B7DD2061405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A789BCD7-5E0C-4C9E-B9EC-9B7DD2061405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A789BCD7-5E0C-4C9E-B9EC-9B7DD2061405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A789BCD7-5E0C-4C9E-B9EC-9B7DD2061405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

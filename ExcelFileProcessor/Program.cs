@@ -14,8 +14,11 @@ services.AddWebContext(configuration);
 services.AddControllers();
 services.AddCors(options =>
 {
-    options.AddDefaultPolicy(
-        policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:5113")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()); 
 });
 services.AddHttpContextAccessor();
 services.AddEndpointsApiExplorer();
@@ -28,7 +31,7 @@ services.AddScoped<IBankSheetSaver, BankSheetSaver>();
 var app = builder.Build();
 
 app.UseRouting();
-app.UseCors();
+app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseSwagger();

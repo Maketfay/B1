@@ -1,0 +1,83 @@
+﻿@page "/file/{fileId:int}"
+@using ExcelProcessorWebApplication.Logic.Services.Contracts
+@rendermode InteractiveServer
+
+<RadzenColumn Size="12">
+    <RadzenDataGrid Data="@BankSheetDtos" TItem="BankSheetDto"
+                    AllowFiltering="false"
+                    AllowColumnResize="true"
+                    AllowAlternatingRows="false"
+                    AllowSorting="true"
+                    PageSize="15"
+                    AllowPaging="true"
+                    PagerHorizontalAlign="HorizontalAlign.Left"
+                    ShowPagingSummary="true"
+                    SelectionMode="DataGridSelectionMode.Single"
+                    ExpandMode="DataGridExpandMode.Single">
+        <Columns>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="Currency" Title="Currency"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.IncomingBalanceActive" Title="Incoming Balance Active"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.IncomingBalancePassive" Title="Incoming Balance Passive"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.TurnoverDebit" Title="Turnover Debit"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.TurnoverCredit" Title="Turnover Credit"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.OutgoingBalanceActive" Title="Outgoing Balance Active"/>
+            <RadzenDataGridColumn TItem="BankSheetDto" Property="AggregatedData.OutgoingBalancePassive" Title="Outgoing Balance Passive"/>
+        </Columns>
+
+        <Template Context="bankSheet">
+            <RadzenDataGrid Data="@bankSheet.Groups" TItem="BankAccountGroupDto">
+                <Columns>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="Title" Title="Group Title"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.IncomingBalanceActive" Title="Incoming Balance Active"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.IncomingBalancePassive" Title="Incoming Balance Passive"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.TurnoverDebit" Title="Turnover Debit"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.TurnoverCredit" Title="Turnover Credit"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.OutgoingBalanceActive" Title="Outgoing Balance Active"/>
+                    <RadzenDataGridColumn TItem="BankAccountGroupDto" Property="AggregatedData.OutgoingBalancePassive" Title="Outgoing Balance Passive"/>
+                </Columns>
+
+                <Template Context="group">
+                    <RadzenDataGrid Data="@group.Groups" TItem="BankAccountIndexGroupDto">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="GroupIndex" Title="Group Index"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.IncomingBalanceActive" Title="Incoming Balance Active"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.IncomingBalancePassive" Title="Incoming Balance Passive"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.TurnoverDebit" Title="Turnover Debit"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.TurnoverCredit" Title="Turnover Credit"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.OutgoingBalanceActive" Title="Outgoing Balance Active"/>
+                            <RadzenDataGridColumn TItem="BankAccountIndexGroupDto" Property="AggregatedData.OutgoingBalancePassive" Title="Outgoing Balance Passive"/>
+                        </Columns>
+
+                        <Template Context="data">
+                            <RadzenDataGrid Data="@data.Data" TItem="BankAccountSimpleDataDto">
+                                <Columns>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="AccountNumber" Title="Number"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.IncomingBalanceActive" Title="Incoming Balance Active"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.IncomingBalancePassive" Title="Incoming Balance Passive"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.TurnoverDebit" Title="Turnover Debit"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.TurnoverCredit" Title="Turnover Credit"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.OutgoingBalanceActive" Title="Outgoing Balance Active"/>
+                                    <RadzenDataGridColumn TItem="BankAccountSimpleDataDto" Property="Data.OutgoingBalancePassive" Title="Outgoing Balance Passive"/>
+                                </Columns>
+                            </RadzenDataGrid>
+                        </Template>
+                    </RadzenDataGrid>
+                </Template>
+            </RadzenDataGrid>
+        </Template>
+    </RadzenDataGrid>
+</RadzenColumn>
+
+@code {
+    [Parameter] public int FileId { get; set; }
+
+    [Inject] public IBankSheetProvider BankSheetProvider { get; set; } = null!;
+
+    public IEnumerable<BankSheetDto>? BankSheetDtos;
+
+    protected override void OnInitialized()
+    {
+        BankSheetDtos = BankSheetProvider.GetBankSheet(FileId);
+    }
+
+}

@@ -1,0 +1,90 @@
+﻿@page "/"
+@using ExcelProcessorWebApplication.Logic.Services.Contracts
+@rendermode InteractiveServer
+
+<RadzenRow>
+    <RadzenColumn Size="12">
+        <RadzenUpload Url="http://localhost:5001/api/BalanceSheet/upload" ChooseText="Select File" Accept=".xlsx"
+                      Style="margin-bottom: 20px;" Multiple="false" Complete="OnUploadComplete"/>
+    </RadzenColumn>
+</RadzenRow>
+
+<h3>Imported files</h3>
+
+<RadzenRow>
+    <RadzenColumn Size="12">
+        <RadzenDataGrid Data="@ImportedFilesDtos" TItem="ImportedFileDto"
+                        AllowFiltering="false"
+                        AllowColumnResize="true"
+                        AllowAlternatingRows="false"
+                        AllowSorting="true"
+                        PageSize="15"
+                        AllowPaging="true"
+                        PagerHorizontalAlign="HorizontalAlign.Left"
+                        ShowPagingSummary="true"
+                        SelectionMode="DataGridSelectionMode.Single">
+            <Columns>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="Id" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.Id</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="Title" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.Title</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="File Name" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.FileName</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="Bank Name" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.BankName</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="Date" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.Date?.ToString("yyyy MMMM dd")</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="true" Title="Load time" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <p>@data.UpdateTime.ToString("HH:mm:ss dd/MM/yyyy")</p>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Filterable="false" Sortable="false" Title="" Frozen="true" Width="80px" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                    <RadzenButton Click="@(() => OnRowClick(data))">VIEW</RadzenButton>
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenColumn>
+</RadzenRow>
+
+@code {
+    [Inject] public IImportedFileProvider ImportedFileProvider { get; set; } = null!;
+    [Inject] public NavigationManager NavigationManager { get; set; } = null!;
+    private IFormFile? SelectedFile;
+
+    public IEnumerable<ImportedFileDto>? ImportedFilesDtos;
+
+    protected override void OnInitialized()
+    {
+        ImportedFilesDtos = ImportedFileProvider.GetImportedFiles();
+    }
+
+    private async Task OnUploadComplete(UploadCompleteEventArgs e)
+    {
+        ImportedFilesDtos = ImportedFileProvider.GetImportedFiles();
+        StateHasChanged();
+    }
+
+    private void OnRowClick(ImportedFileDto selectedFile)
+    {
+        NavigationManager.NavigateTo($"/file/{selectedFile.Id}");
+    }
+
+}
